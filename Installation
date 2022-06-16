@@ -1,0 +1,27 @@
+###########Instal ELK on Ubuntu 
+
+Install Required Dependencies: sudo apt-get update 
+
+Install and Configure Java: sudo apt -y install openjdk-11-jdk
+
+Download and install the PGP Key using wget command: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+Next is to add the Elasticsearch repository to the system: echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+
+Install Elasticsearch: apt-get update
+                       apt-get install elasticsearch -y
+                       systemctl enable elasticsearch
+                       sudo systemctl start elasticsearch
+                       
+Verify Elasticsearch is working properly:  sudo apt-get install curl     
+
+Now test the Elasticsearch by sending an HTTP request with port number 9200: curl -X GET "localhost:9200/"
+
+Install Kibana Dashboard: sudo apt install kibana
+
+Enable and start the Kibana service: sudo systemctl enable kibana
+                                     sudo systemctl start kibana
+                                     
+ Access the Kibana Dashboard web interface:    http://localhost:5601
+ 
+ 
